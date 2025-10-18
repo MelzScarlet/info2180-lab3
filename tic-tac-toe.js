@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     squares.forEach(square => {
         square.classList.add('square');
     });
-      let currentPlayer = 'X'; 
+    
+    let currentPlayer = 'X'; 
     let gameState = ['', '', '', '', '', '', '', '', '']; 
 
     squares.forEach((square, index) => {
@@ -18,7 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
             }
         });
+
+        square.addEventListener('mouseover', function() {
+            if (gameState[index] === '') {
+                square.classList.add('hover');
+            }
+        });
+
+        square.addEventListener('mouseout', function() {
+            square.classList.remove('hover');
+        });
     });
-
 });
-
